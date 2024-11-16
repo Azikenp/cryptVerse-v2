@@ -12,7 +12,7 @@ import {
   CryptoDetails,
   News,
 } from "./components";
-import store from "./app/store.js";
+import store from "./app/store";
 
 const router = createBrowserRouter([
   {
