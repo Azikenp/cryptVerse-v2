@@ -1,9 +1,20 @@
-import React from 'react'
+import { Typography } from "antd";
+import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 
-const News = () => {
+const News = ({ simplified }) => {
+  const { Text, Title } = Typography;
+  const { data: cryptoNews, isLoading } = useGetCryptoNewsQuery({
+    newsCategory: "Cryptocurrency",
+    count: simplified ? 10 : 100,
+  });
+
+  console.log(cryptoNews);
+
   return (
-    <div>News</div>
-  )
-}
+    <>
+      <div></div>
+    </>
+  );
+};
 
-export default News
+export default News;
