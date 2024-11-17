@@ -3,9 +3,20 @@ import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import moment from "moment";
 import { useState } from "react";
 
+const newsHeaders = [
+  "coindesk",
+  "cointelegraph",
+  "bitcoinist",
+  "decrypt",
+  "bsc",
+  "theguardian",
+  "cryptodaily",
+];
+
 const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState("coindesk");
   const { Text, Title } = Typography;
+  const { Option } = Select;
   const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory });
 
   const demoImage =
@@ -28,12 +39,14 @@ const News = ({ simplified }) => {
             className="select-news"
             placeholder="Select a news platform"
             optionFilterProp="children"
-            onChange={(value) => console.log(value)}
+            onChange={(value) => setNewsCategory(value)}
             filterOption={(input, option) =>
-              option.children.toLowerCase().index(input.toLowerCase()) >= 0
+              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            hi
+            {newsHeaders.map((news) => (
+              <Option value={news}>{news}</Option>
+            ))}
           </Select>
         </Col>
       )}
