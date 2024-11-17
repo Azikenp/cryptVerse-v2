@@ -22,7 +22,7 @@ const News = ({ simplified }) => {
   const demoImage =
     "https://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg";
 
-  console.log(cryptoNews);
+
 
   if (!cryptoNews) return "Loading...";
 
