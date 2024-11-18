@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row, Typography } from "antd";
 import { Line } from "react-chartjs-2";
 
 const { Title } = Typography;
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale, // Register category scale
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Register components
+ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   //   console.log(coinHistory);
 
   const coinPrice = [];
   const coinTimestamp = [];
+
+  // useEffect(() => {
+  //   return () => {
+  //     // Properly destroy all chart instances
+  //     Object.keys(Chart.instances).forEach((key) => {
+  //       const chart = Chart.instances[key];
+  //       if (chart) {
+  //         chart.destroy();
+  //       }
+  //     });
+  //   };
+  // }, []);
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory.data.history[i].price);
@@ -58,7 +82,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         </Col>
       </Row>
 
-      {/* <Line data={data} options={options} /> */}
+      <Line data={data} options={options} />
     </>
   );
 };
