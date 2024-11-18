@@ -2,6 +2,7 @@ import { Avatar, Card, Col, Row, Select, Typography } from "antd";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import moment from "moment";
 import { useState } from "react";
+import Loader from "./Loader";
 
 const newsHeaders = [
   "coindesk",
@@ -22,9 +23,7 @@ const News = ({ simplified }) => {
   const demoImage =
     "https://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg";
 
-
-
-  if (!cryptoNews) return "Loading...";
+  if (!cryptoNews) return <Loader />;
 
   const displayedNews = simplified
     ? cryptoNews.data.slice(0, 6)
