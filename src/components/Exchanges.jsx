@@ -24,14 +24,7 @@ const Exchanges = () => {
         <Col span={6}>Change</Col>
       </Row>
       <Row>
-        <div
-          className={{
-            width: "100vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className="coming-soon">
           <p>Coming soon...</p>
         </div>
         {/* {exchangesList.map((exchange) => (
