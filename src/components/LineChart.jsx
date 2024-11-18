@@ -58,7 +58,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         </Col>
       </Row>
 
-      <Line data={data} options={options} />
+      {/* <Line data={data} options={options} /> */}
     </>
   );
 };
