@@ -15,6 +15,7 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
+import LineChart from "./LineChart";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -122,7 +123,12 @@ const CryptoDetails = () => {
         ))}
       </Select>
 
-      {/* line chart */}
+      <LineChart
+        coinHistory={coinHistory}
+        currentPrice={millify(cryptoDetails.price)}
+        coinName={cryptoDetails.name}
+      />
+
       <Col className="stats-container">
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">
@@ -177,7 +183,9 @@ const CryptoDetails = () => {
               <Title level={5} className="link-name">
                 {link.name}
               </Title>
-              <a href={link.url} rel="noreferrer" target="_blank">{link.name}</a>
+              <a href={link.url} rel="noreferrer" target="_blank">
+                {link.name}
+              </a>
             </Row>
           ))}
         </Col>
