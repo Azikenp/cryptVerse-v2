@@ -169,7 +169,17 @@ const CryptoDetails = () => {
           </Title>
         </Row>
         <Col className="coin-links">
-          <Title level={3} className="coin-details-name">{cryptoDetails.name} Links</Title>
+          <Title level={3} className="coin-details-heading">
+            {cryptoDetails.name} Links
+          </Title>
+          {cryptoDetails.links.map((link) => (
+            <Row className="coin-link" key={link.type}>
+              <Title level={5} className="link-name">
+                {link.name}
+              </Title>
+              <a href={link.url} rel="noreferrer" target="_blank">{link.name}</a>
+            </Row>
+          ))}
         </Col>
       </Col>
     </Col>
