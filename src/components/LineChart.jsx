@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Col, Row, Typography } from "antd";
 import { Line } from "react-chartjs-2";
 
