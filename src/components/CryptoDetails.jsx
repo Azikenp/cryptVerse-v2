@@ -118,7 +118,7 @@ const CryptoDetails = () => {
         </p>
       </Col>
       <Select
-        defaultValue="5y"
+        defaultValue={timeperiod}
         className="select-timeperiod"
         placeholder="Select Timeperiod"
         onChange={(value) => {
