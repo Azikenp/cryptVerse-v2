@@ -16,7 +16,7 @@ import {
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-    console.log(coinHistory);
+    // console.log(coinHistory);
 
   const coinPrice = [];
   const coinTimestamp = [];
